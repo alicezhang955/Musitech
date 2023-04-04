@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B51A4C529B67A710052008B /* MusitechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4C429B67A710052008B /* MusitechApp.swift */; };
+		8B51A4C729B67A710052008B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4C629B67A710052008B /* ContentView.swift */; };
+		8B51A4C929B67A730052008B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51A4C829B67A730052008B /* Assets.xcassets */; };
+		8B51A4CC29B67A730052008B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51A4CB29B67A730052008B /* Preview Assets.xcassets */; };
+		8B51A4D629B67A730052008B /* MusitechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4D529B67A730052008B /* MusitechTests.swift */; };
+		8B51A4E029B67A730052008B /* MusitechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4DF29B67A730052008B /* MusitechUITests.swift */; };
+		8B51A4E229B67A730052008B /* MusitechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4E129B67A730052008B /* MusitechUITestsLaunchTests.swift */; };
+		8B51A4EF29B67BBF0052008B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4EE29B67BBF0052008B /* ContentViewModel.swift */; };
+		F3F0C97429DC8A3100A6CE0D /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3F0C97329DC8A3100A6CE0D /* OpenAISwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B51A4D229B67A730052008B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B51A4B929B67A700052008B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B51A4C029B67A710052008B;
+			remoteInfo = Musitech;
+		};
+		8B51A4DC29B67A730052008B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B51A4B929B67A700052008B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B51A4C029B67A710052008B;
+			remoteInfo = Musitech;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B51A4C129B67A710052008B /* Musitech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musitech.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B51A4C429B67A710052008B /* MusitechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusitechApp.swift; sourceTree = "<group>"; };
+		8B51A4C629B67A710052008B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B51A4C829B67A730052008B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B51A4CB29B67A730052008B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B51A4D129B67A730052008B /* MusitechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusitechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B51A4D529B67A730052008B /* MusitechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusitechTests.swift; sourceTree = "<group>"; };
+		8B51A4DB29B67A730052008B /* MusitechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusitechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B51A4DF29B67A730052008B /* MusitechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusitechUITests.swift; sourceTree = "<group>"; };
+		8B51A4E129B67A730052008B /* MusitechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusitechUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B51A4EE29B67BBF0052008B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B51A4BE29B67A710052008B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3F0C97429DC8A3100A6CE0D /* OpenAISwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4CE29B67A730052008B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4D829B67A730052008B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B51A4B829B67A700052008B = {
+			isa = PBXGroup;
+			children = (
+				8B51A4C329B67A710052008B /* Musitech */,
+				8B51A4D429B67A730052008B /* MusitechTests */,
+				8B51A4DE29B67A730052008B /* MusitechUITests */,
+				8B51A4C229B67A710052008B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B51A4C229B67A710052008B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B51A4C129B67A710052008B /* Musitech.app */,
+				8B51A4D129B67A730052008B /* MusitechTests.xctest */,
+				8B51A4DB29B67A730052008B /* MusitechUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B51A4C329B67A710052008B /* Musitech */ = {
+			isa = PBXGroup;
+			children = (
+				8B51A4C429B67A710052008B /* MusitechApp.swift */,
+				8B51A4C629B67A710052008B /* ContentView.swift */,
+				8B51A4C829B67A730052008B /* Assets.xcassets */,
+				8B51A4CA29B67A730052008B /* Preview Content */,
+				8B51A4EE29B67BBF0052008B /* ContentViewModel.swift */,
+			);
+			path = Musitech;
+			sourceTree = "<group>";
+		};
+		8B51A4CA29B67A730052008B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B51A4CB29B67A730052008B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B51A4D429B67A730052008B /* MusitechTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B51A4D529B67A730052008B /* MusitechTests.swift */,
+			);
+			path = MusitechTests;
+			sourceTree = "<group>";
+		};
+		8B51A4DE29B67A730052008B /* MusitechUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B51A4DF29B67A730052008B /* MusitechUITests.swift */,
+				8B51A4E129B67A730052008B /* MusitechUITestsLaunchTests.swift */,
+			);
+			path = MusitechUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B51A4C029B67A710052008B /* Musitech */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B51A4E529B67A730052008B /* Build configuration list for PBXNativeTarget "Musitech" */;
+			buildPhases = (
+				8B51A4BD29B67A710052008B /* Sources */,
+				8B51A4BE29B67A710052008B /* Frameworks */,
+				8B51A4BF29B67A710052008B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Musitech;
+			packageProductDependencies = (
+				F3F0C97329DC8A3100A6CE0D /* OpenAISwift */,
+			);
+			productName = Musitech;
+			productReference = 8B51A4C129B67A710052008B /* Musitech.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B51A4D029B67A730052008B /* MusitechTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B51A4E829B67A730052008B /* Build configuration list for PBXNativeTarget "MusitechTests" */;
+			buildPhases = (
+				8B51A4CD29B67A730052008B /* Sources */,
+				8B51A4CE29B67A730052008B /* Frameworks */,
+				8B51A4CF29B67A730052008B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B51A4D329B67A730052008B /* PBXTargetDependency */,
+			);
+			name = MusitechTests;
+			productName = MusitechTests;
+			productReference = 8B51A4D129B67A730052008B /* MusitechTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B51A4DA29B67A730052008B /* MusitechUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B51A4EB29B67A730052008B /* Build configuration list for PBXNativeTarget "MusitechUITests" */;
+			buildPhases = (
+				8B51A4D729B67A730052008B /* Sources */,
+				8B51A4D829B67A730052008B /* Frameworks */,
+				8B51A4D929B67A730052008B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B51A4DD29B67A730052008B /* PBXTargetDependency */,
+			);
+			name = MusitechUITests;
+			productName = MusitechUITests;
+			productReference = 8B51A4DB29B67A730052008B /* MusitechUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B51A4B929B67A700052008B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8B51A4C029B67A710052008B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					8B51A4D029B67A730052008B = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8B51A4C029B67A710052008B;
+					};
+					8B51A4DA29B67A730052008B = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8B51A4C029B67A710052008B;
+					};
+				};
+			};
+			buildConfigurationList = 8B51A4BC29B67A700052008B /* Build configuration list for PBXProject "Musitech" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B51A4B829B67A700052008B;
+			packageReferences = (
+				F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
+			productRefGroup = 8B51A4C229B67A710052008B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B51A4C029B67A710052008B /* Musitech */,
+				8B51A4D029B67A730052008B /* MusitechTests */,
+				8B51A4DA29B67A730052008B /* MusitechUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B51A4BF29B67A710052008B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B51A4CC29B67A730052008B /* Preview Assets.xcassets in Resources */,
+				8B51A4C929B67A730052008B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4CF29B67A730052008B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4D929B67A730052008B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B51A4BD29B67A710052008B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B51A4C729B67A710052008B /* ContentView.swift in Sources */,
+				8B51A4C529B67A710052008B /* MusitechApp.swift in Sources */,
+				8B51A4EF29B67BBF0052008B /* ContentViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4CD29B67A730052008B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B51A4D629B67A730052008B /* MusitechTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B51A4D729B67A730052008B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B51A4E229B67A730052008B /* MusitechUITestsLaunchTests.swift in Sources */,
+				8B51A4E029B67A730052008B /* MusitechUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B51A4D329B67A730052008B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B51A4C029B67A710052008B /* Musitech */;
+			targetProxy = 8B51A4D229B67A730052008B /* PBXContainerItemProxy */;
+		};
+		8B51A4DD29B67A730052008B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B51A4C029B67A710052008B /* Musitech */;
+			targetProxy = 8B51A4DC29B67A730052008B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8B51A4E329B67A730052008B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B51A4E429B67A730052008B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B51A4E629B67A730052008B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Musitech/Preview Content\"";
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please give access to microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.Musitech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B51A4E729B67A730052008B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Musitech/Preview Content\"";
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please give access to microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.Musitech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B51A4E929B67A730052008B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.MusitechTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musitech.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Musitech";
+			};
+			name = Debug;
+		};
+		8B51A4EA29B67A730052008B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.MusitechTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musitech.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Musitech";
+			};
+			name = Release;
+		};
+		8B51A4EC29B67A730052008B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.MusitechUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Musitech;
+			};
+			name = Debug;
+		};
+		8B51A4ED29B67A730052008B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5JQRPD8L54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = alicezhang955.MusitechUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Musitech;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B51A4BC29B67A700052008B /* Build configuration list for PBXProject "Musitech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B51A4E329B67A730052008B /* Debug */,
+				8B51A4E429B67A730052008B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B51A4E529B67A730052008B /* Build configuration list for PBXNativeTarget "Musitech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B51A4E629B67A730052008B /* Debug */,
+				8B51A4E729B67A730052008B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B51A4E829B67A730052008B /* Build configuration list for PBXNativeTarget "MusitechTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B51A4E929B67A730052008B /* Debug */,
+				8B51A4EA29B67A730052008B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B51A4EB29B67A730052008B /* Build configuration list for PBXNativeTarget "MusitechUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B51A4EC29B67A730052008B /* Debug */,
+				8B51A4ED29B67A730052008B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3F0C97329DC8A3100A6CE0D /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8B51A4B929B67A700052008B /* Project object */;
+}
