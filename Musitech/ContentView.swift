@@ -178,7 +178,7 @@ func send() {
     viewModel2.send(text: text) { response in
         DispatchQueue.main.async {
             self.models.append("ChatGPT: "+response)
-            self.text = "Write me a haiku about summer"
+            self.text = "Write me a haiku about winter"
         }
     }
 }
