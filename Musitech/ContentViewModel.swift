@@ -20,7 +20,6 @@ struct ShazamMedia: Decodable{
 class ContentViewModel: NSObject, ObservableObject{
     @Published var shazamMedia = ShazamMedia(title: "Title...", subtitle: "Subtitle...", artistName: "Artist Name...", albumArtURL: URL(string: "https://google.com"), genres: ["pop"])
     @Published var isRecording = false
-    @Published var checkRecording = false
     @Published var audioEngine = AVAudioEngine()
     @Published var endListening = false
     private let session = SHSession()

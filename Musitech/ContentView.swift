@@ -14,7 +14,7 @@ final class ViewModel: ObservableObject {
     private var client: OpenAISwift?
     
     func setup() {
-        client = OpenAISwift(authToken: "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")
+        client = OpenAISwift(authToken: "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")
     }
     
     func send(text: String, completion: @escaping (String) -> Void) {
@@ -26,6 +26,7 @@ final class ViewModel: ObservableObject {
                 let output = model.choices?.first?.text ?? ""
                 completion(output)
             case .failure:
+                print("gpt failed")
                 break
             }
         })
@@ -33,29 +34,102 @@ final class ViewModel: ObservableObject {
 }
 
 struct DetailView: View {
+    @ObservedObject var viewModel2: ViewModel
     @ObservedObject var viewModel1: ContentViewModel
-    @ObservedObject var viewModel2 = ViewModel()
-    @State var text = ""
+    @State var sendQuestion = "Write me a haiku about spring"
     @State var models = [String]()
+    @State var title = "Title"
+    @State var artist = "Artist"
+    @State var composer = "Composer"
+    @State var pieceDescription = ""
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(models, id: \.self) { string in
-                Text(string)
-            }
+//            ForEach(models, id: \.self) { string in
+//                Text(string)
+//            }
+            Text(title)
+            Text(artist)
+            Text(composer)
+            Text(pieceDescription)
             Spacer()
             
             HStack {
-                TextField("Type here...", text: $text)
                 Button("Send") {
-                    send()
+                    self.artist = viewModel1.shazamMedia.artistName ?? "Artist"
+                    self.sendQuestion = "Write me a haiku about " + artist
+                    send(text: sendQuestion)
                 }
             }
         }
         .onAppear {
             viewModel2.setup()
+            self.title = viewModel1.shazamMedia.title ?? "Title"
+            self.artist = viewModel1.shazamMedia.artistName ?? "Artist"
+//            self.sendQuestion = "Write me a haiku about " + title
+//            send(text: sendQuestion)
+//            self.sendQuestion = "Give me the name of the person who composed " + title
+//            send(text: sendQuestion)
+//            self.sendQuestion = "Give me a brief description of " + title
+//            send(text: sendQuestion)
+            self.sendQuestion = "Give me a brief description of " + title
+            viewModel2.send(text: sendQuestion) { response in
+                self.pieceDescription = response
+            }
+            self.sendQuestion = "Give me the name of the person who composed " + title
+            viewModel2.send(text: sendQuestion) { response in
+                self.composer = response
+            }
         }
         .padding()
+    }
+
+    func send(text: String) {
+        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        
+        models.append("Me: \(text)")
+        viewModel2.send(text: text) { response in
+            DispatchQueue.main.async {
+                self.models.append("ChatGPT: "+response)
+                self.title = viewModel1.shazamMedia.title ?? "Title"
+                self.sendQuestion = "Write me a haiku about " + title
+            }
+        }
+    }
+    
+//    func storeResponse(text: String, completion: @escaping (String) -> Void) {
+//        viewModel2.send(text: text) { response in
+//            DispatchQueue.main.async {
+//                return response
+//            }
+//        }
+//    }
+        
+//    @ObservedObject var viewModel1: ContentViewModel
+//    @ObservedObject var viewModel2 = ViewModel()
+//    @State var text = ""
+//    @State var models = [String]()
+//
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            ForEach(models, id: \.self) { string in
+//                Text(string)
+//            }
+//            Spacer()
+//
+//            HStack {
+//                TextField("Type here...", text: $text)
+//                Button("Send") {
+//                    send()
+//                }
+//            }
+//        }
+//        .onAppear {
+//            viewModel2.setup()
+//        }
+//        .padding()
 //        Text("This is the detail view")
 //        Spacer()
         
@@ -83,104 +157,89 @@ struct DetailView: View {
 //                .multilineTextAlignment(.center)
 //        }.padding()
 //        Spacer()
-    }
-    
-    func send() {
-        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return
-        }
-        
-        models.append("Me: \(text)")
-        viewModel2.send(text: text) { response in
-            DispatchQueue.main.async {
-                self.models.append("ChatGPT: "+response)
-                self.text = ""
-            }
-        }
-    }
+
 }
 
 struct ContentView: View {
-//    @StateObject private var viewModel = ContentViewModel()
+    @ObservedObject var viewModel2 = ViewModel()
+//    @ObservedObject var viewModel1 = ContentViewModel()
+//    @State var sendQuestion = "Write me a haiku about spring"
+//    @State var models = [String]()
+//    @State var title = "Title"
+//    @State var artist = "Artist"
 //
 //    var body: some View {
-//        NavigationStack {
-//            ZStack {
-//                AsyncImage(url: viewModel.shazamMedia.albumArtURL) { image in
-//                    image
-//                        .resizable()
-//                        .scaledToFill()
-//                        .blur(radius: 10, opaque: true)
-//                        . opacity(0.5)
-//                        .edgesIgnoringSafeArea(.all)
-//                } placeholder: {
-//                    EmptyView()
-//                }
+//        VStack(alignment: .leading) {
+//            ForEach(models, id: \.self) { string in
+//                Text(string)
+//            }
+//            Spacer()
 //
-//                VStack(alignment: .center) {
-//                    Button(action: {viewModel.startOrEndListening()}) {
-//                        Text(viewModel.isRecording ? "Listening..." : "Start Shazaming")
-//                            .frame(width: 300)
-//                    }.buttonStyle(.bordered)
-//                        .controlSize(.large)
-//                    //                    .controlProminence(.increased)
-//                        .shadow(radius: 4)
-//                    Spacer()
-////                    VStack {
-////                        NavigationLink("Show Detail View") {
-////                            DetailView()
-////                        }
-////                    }
-////                    .navigationTitle("Navigation")
-////                    NavigationLink(destination:x
-////                       DetailView(),
-////                       isActive: $viewModel.endListening) {
-////                         EmptyView()
-////                    }.hidden()
-//                        .navigationDestination(
-//                             isPresented: $viewModel.endListening) {
-//                                  DetailView(viewModel1: viewModel)
-//                                 EmptyView()
-//                             }
+//            HStack {
+//                Button("Send") {
+//                    self.artist = viewModel1.shazamMedia.artistName ?? "Artist"
+//                    self.sendQuestion = "Write me a haiku about " + artist
+//                    send(text: sendQuestion)
 //                }
-            
 //            }
 //        }
-    @ObservedObject var viewModel2 = ViewModel()
-    @State var text = "Write me a haiku about spring"
-    @State var models = [String]()
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(models, id: \.self) { string in
-                Text(string)
-            }
-            Spacer()
-            
-            HStack {
-                Button("Send") {
-                    send()
-                }
-            }
-        }
-        .onAppear {
-            viewModel2.setup()
-        }
-        .padding()
-    }
+//        .onAppear {
+//            viewModel2.setup()
+//            self.title = viewModel1.shazamMedia.title ?? "Title"
+//            self.sendQuestion = "Write me a haiku about " + title
+//            send(text: sendQuestion)
+//        }
+//        .padding()
+//    }
+//
+//    func send(text: String) {
+//    guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
+//        return
+//    }
+//
+//    models.append("Me: \(text)")
+//    viewModel2.send(text: text) { response in
+//        DispatchQueue.main.async {
+//            self.models.append("ChatGPT: "+response)
+//            self.title = viewModel1.shazamMedia.title ?? "Title"
+//            self.sendQuestion = "Write me a haiku about " + title
+//        }
+//    }
+    @StateObject private var viewModel = ContentViewModel()
 
-func send() {
-    guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-        return
-    }
-    
-    models.append("Me: \(text)")
-    viewModel2.send(text: text) { response in
-        DispatchQueue.main.async {
-            self.models.append("ChatGPT: "+response)
-            self.text = "Write me a haiku about winter"
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                AsyncImage(url: viewModel.shazamMedia.albumArtURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .blur(radius: 10, opaque: true)
+                        . opacity(0.5)
+                        .edgesIgnoringSafeArea(.all)
+                } placeholder: {
+                    EmptyView()
+                }
+
+                VStack(alignment: .center) {
+                    Button(action: {viewModel.startOrEndListening()}) {
+                        Text(viewModel.isRecording ? "Listening..." : "Start Shazaming")
+                            .frame(width: 300)
+                    }.buttonStyle(.bordered)
+                        .controlSize(.large)
+                    //                    .controlProminence(.increased)
+                        .shadow(radius: 4)
+                    Spacer()
+                        .navigationDestination(
+                             isPresented: $viewModel.endListening) {
+                                 DetailView(viewModel2: viewModel2, viewModel1: viewModel)
+                                 EmptyView()
+                             }
+                }
+
+            }
         }
-    }
+
 }
     
     
