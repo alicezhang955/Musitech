@@ -15,6 +15,7 @@
 		8B51A4E029B67A730052008B /* MusitechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4DF29B67A730052008B /* MusitechUITests.swift */; };
 		8B51A4E229B67A730052008B /* MusitechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4E129B67A730052008B /* MusitechUITestsLaunchTests.swift */; };
 		8B51A4EF29B67BBF0052008B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51A4EE29B67BBF0052008B /* ContentViewModel.swift */; };
+		F32E5A1529EE3A86000D94C5 /* SnapToScroll in Frameworks */ = {isa = PBXBuildFile; productRef = F32E5A1429EE3A86000D94C5 /* SnapToScroll */; };
 		F3F0C97429DC8A3100A6CE0D /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3F0C97329DC8A3100A6CE0D /* OpenAISwift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32E5A1529EE3A86000D94C5 /* SnapToScroll in Frameworks */,
 				F3F0C97429DC8A3100A6CE0D /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +152,7 @@
 			name = Musitech;
 			packageProductDependencies = (
 				F3F0C97329DC8A3100A6CE0D /* OpenAISwift */,
+				F32E5A1429EE3A86000D94C5 /* SnapToScroll */,
 			);
 			productName = Musitech;
 			productReference = 8B51A4C129B67A710052008B /* Musitech.app */;
@@ -225,6 +228,7 @@
 			mainGroup = 8B51A4B829B67A700052008B;
 			packageReferences = (
 				F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				F32E5A1329EE3A86000D94C5 /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */,
 			);
 			productRefGroup = 8B51A4C229B67A710052008B /* Products */;
 			projectDirPath = "";
@@ -601,6 +605,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F32E5A1329EE3A86000D94C5 /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftui-library/hstack-snap-to-scroll.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
@@ -612,6 +624,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F32E5A1429EE3A86000D94C5 /* SnapToScroll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F32E5A1329EE3A86000D94C5 /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */;
+			productName = SnapToScroll;
+		};
 		F3F0C97329DC8A3100A6CE0D /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F3F0C97229DC8A3100A6CE0D /* XCRemoteSwiftPackageReference "OpenAISwift" */;
