@@ -8,6 +8,8 @@
 import OpenAISwift
 import SwiftUI
 import SnapToScroll
+import Foundation
+
 
 struct ScrollingHStackModifier: ViewModifier {
     
@@ -105,19 +107,60 @@ final class ViewModel: ObservableObject {
     }
 }
 
+enum MyButtonStyle {
+    case borderProminent
+    case bordered
+    // .. extend with any custom here
+}
+
+extension Button {
+
+    @ViewBuilder
+    func myStyle(_ style: MyButtonStyle) -> some View {
+        switch style {
+            case .borderProminent:
+                self.buttonStyle(BorderedProminentButtonStyle())
+            case .bordered:
+                self.buttonStyle(BorderedButtonStyle())
+           // .. extend with any custom here
+        }
+    }
+}
+
+
 struct DetailView: View {
     @ObservedObject var viewModel2: ViewModel
     @ObservedObject var viewModel1: ContentViewModel
-    @State var sendQuestion = "Write me a haiku about spring"
+    @State var questionComposer = ""
+    @State var questionPieceDesc = ""
+    @State var questionSound = ""
+    @State var questionRecArtist = ""
+    @State var questionResp = ""
+    @State var questionAlbum = ""
+    @State var questionHist = ""
     @State var models = [String]()
     @State var title = "Title"
     @State var artist = "Artist"
-    @State var composer = "Composer"
+    @State var composer = ""
+    @State var subtitle = "Subtitle"
+    @State var genre = "Genre"
+    @State var sounds = ""
+    @State var historicalContext = ""
+    @State var artwork = URL(string: "https://www.apple.com")
+    @State var albumTitle = "Album"
     @State var pieceDescription = ""
     @State var text = ""
     @State var recArtists = [String]()
     @State var recSongs = [String]()
     @State var resp = ""
+    @State var opacity = 0.6
+    
+//    private func reload(prompt: String, completion: @escaping (String) -> Void) {
+//        self.sendQuestion = "Is the song " + title + " classical music? Give me a yes or no answer."
+//        viewModel2.send(text: sendQuestion) { response in
+//            self.resp = response
+//        }
+//    }
     
     var body: some View {
 //        VStack(alignment: .leading) {
@@ -125,85 +168,170 @@ struct DetailView: View {
 //                Text(string)
 //            }
         ScrollView(.vertical, showsIndicators: true) {
-            VStack(spacing: 20) {
-                Text(title)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .background(Rectangle().fill(Color.purple.opacity(0.5)).shadow(radius: 3)
-                        .cornerRadius(10))
-                Text(artist)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .background(Rectangle().fill(Color.purple.opacity(0.5)).shadow(radius: 3)
-                        .cornerRadius(10))
-                Text(composer)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .background(Rectangle().fill(Color.purple.opacity(0.5)).shadow(radius: 3)
-                        .cornerRadius(10))
-                Text(pieceDescription)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .background(Rectangle().fill(Color.purple.opacity(0.5)).shadow(radius: 3)
-                        .cornerRadius(10))
-                Text(resp)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .background(Rectangle().fill(Color.purple.opacity(0.5)).shadow(radius: 3)
-                        .cornerRadius(10))
+            VStack(spacing: 10) {
+//                Text(genre)
+                Group {
+                    HStack() {
+                        Text(title)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+    //                Text(artist)
+    //                Text(albumTitle)
+                    HStack() {
+                        Text(composer)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.purple.opacity(1))
+                        Spacer()
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                }
                 Spacer()
-                Text("Recommended Artists")
-                HStack( spacing: 30) {
-                    ForEach(0..<recArtists.count, id: \.self) { i in
-                                     Text(recArtists[i])
-                            .frame(width: 250, height: 100, alignment: .center)
-                                         .cornerRadius(10)
-                                         .background(Rectangle().fill(Color.purple.opacity(1)).shadow(radius: 3)
-                                             .cornerRadius(10))
+                Group {
+                    HStack() {
+                        Text("About the Piece")
+                            .font(.headline)
+                        Spacer()
+                        Button {
+                            viewModel2.send(text: questionPieceDesc) { response in
+                                self.pieceDescription = response
+                            }
+                        } label: {
+                            Image(systemName: "arrow.triangle.2.circlepath")
+    //                            .resizable()
+    //                            .frame(width: 30, height: 20)
+                                .foregroundColor(.white)
+                        }
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                    HStack() {
+                        Text(pieceDescription)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width - 60)
+                            .background(Rectangle().fill(Color.purple.opacity(opacity)).shadow(radius: 3)
+                                .cornerRadius(10))
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                    
+//                    Text(resp)
+                    Spacer()
+                    
+                    if resp.lowercased().contains("yes") {
+                        HStack() {
+                            Text("Historical Context")
+                                .font(.headline)
+                            Spacer()
+                            Button {
+                                viewModel2.send(text: questionHist) { response in
+                                    self.historicalContext = response
                                 }
-                }.modifier(ScrollingHStackModifier(items: recArtists.count, itemWidth: 250, itemSpacing: 30))
-                Spacer()
+                            } label: {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+        //                            .resizable()
+        //                            .frame(width: 30, height: 20)
+                                    .foregroundColor(.white)
+                            }
+                        }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                        HStack() {
+                            Text(historicalContext)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                                .frame(width: UIScreen.main.bounds.width - 60)
+                                .background(Rectangle().fill(Color.purple.opacity(opacity)).shadow(radius: 3)
+                                    .cornerRadius(10))
+                        }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                        Spacer()
+                    }
+                    
+                    HStack() {
+                        Text("Sounds and Textures")
+                        Spacer()
+                        Button {
+                            viewModel2.send(text: questionSound) { response in
+                                self.sounds = response
+                            }
+                        } label: {
+                            Image(systemName: "arrow.triangle.2.circlepath")
+    //                            .resizable()
+    //                            .frame(width: 30, height: 20)
+                                .foregroundColor(.white)
+                        }
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                    HStack() {
+                        Text(sounds)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width - 60)
+                            .background(Rectangle().fill(Color.purple.opacity(opacity)).shadow(radius: 3)
+                                .cornerRadius(10))
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                    Spacer()
+                    
+                    HStack() {
+                        Text("Recommended " + (resp.lowercased().contains("yes") ? "Composers" : "Artists"))
+                        Spacer()
+                    }.frame(maxWidth: UIScreen.main.bounds.width - 60)
+                    HStack(spacing: 30) {
+                        ForEach(0..<recArtists.count, id: \.self) { i in
+                                         Text(recArtists[i])
+                                .frame(width: 300, height: 100, alignment: .center)
+                                             .cornerRadius(10)
+                                             .background(Rectangle().fill(Color.purple.opacity(opacity)).shadow(radius: 3)
+                                                 .cornerRadius(10))
+                                    }
+                        Spacer()
+                    }.modifier(ScrollingHStackModifier(items: recArtists.count, itemWidth: 300, itemSpacing: 30))
+                }
+                
             }.frame(maxWidth: UIScreen.main.bounds.width)
         }
-        
-//            HStack {
-////                TextField("Type here...", text: $text)
-//                Button("Send") {
-//                    self.artist = viewModel1.shazamMedia.artistName ?? "Artist"
-//                    self.sendQuestion = "Write me a haiku about " + artist
-//                    send(text: sendQuestion)
-////                    send(text: text)
-////                }
-//            }
-//        }
         .onAppear {
             viewModel2.setup()
             self.title = viewModel1.shazamMedia.title ?? "Title"
             self.artist = viewModel1.shazamMedia.artistName ?? "Artist"
-            self.sendQuestion = "Give me a brief description of the song " + title
-            viewModel2.send(text: sendQuestion) { response in
-                self.pieceDescription = response
-            }
-            self.sendQuestion = "Give me only the first and last name of the person who composed the song " + title + "with no extra words or letters."
-            viewModel2.send(text: sendQuestion) { response in
-                self.composer = response
-            }
-            self.sendQuestion = "Is the song " + title + " classical music? Give me a yes or no answer."
-            viewModel2.send(text: sendQuestion) { response in
+            self.subtitle = viewModel1.shazamMedia.subtitle ?? "Subtitle"
+            self.genre = viewModel1.shazamMedia.genres[0]
+            self.artwork = viewModel1.shazamMedia.albumArtURL ?? URL(string: "https://www.apple.com")!
+            
+            
+            self.questionResp = "Is the song " + title + " classical music? Give me a yes or no answer."
+            viewModel2.send(text: questionResp) { response in
                 self.resp = response
             }
+            self.questionAlbum = "What is the album title that contains the song " + title + " by " + artist + "and has album art url " + (artwork?.absoluteString ?? "google.com") + "? Return me the name of the album title only with no extra words or symbols"
+            viewModel2.send(text: questionAlbum) { response in
+                self.albumTitle = response
+            }
+            self.questionComposer = "give me the composer of the piece " + title + ", played by " + artist + ". give me the name only with no extra words or symbols"
+            viewModel2.send(text: questionComposer) { response in
+                self.composer = (resp.lowercased().contains("yes") ? response : artist)
+            }
             
-            self.sendQuestion = "Give me only the first and last name of a non white male composer you recommend based on " + composer + "with no extra words or symbols"
-            viewModel2.send(text: sendQuestion) { response in
+            self.questionRecArtist = "Give me only the first and last name of a lesser known " + genre + (resp.lowercased().contains("yes") ? "composer" : "artist") + " you recommend based on " + composer + " with no extra words or symbols"
+            viewModel2.send(text: questionRecArtist) { response in
                 self.recArtists.append(response)
             }
-            self.sendQuestion = "Give me only the first and last name of a non white male composer you recommend based on " + composer + "with no extra words or symbols"
-            viewModel2.send(text: sendQuestion) { response in
+            viewModel2.send(text: questionRecArtist) { response in
                 self.recArtists.append(response)
             }
-            self.sendQuestion = "Give me only the first and last name of a non white male composer you recommend based on " + composer + "with no extra words or symbols"
-            viewModel2.send(text: sendQuestion) { response in
+            viewModel2.send(text: questionRecArtist) { response in
                 self.recArtists.append(response)
+                
+                
+            self.questionPieceDesc = "Give me a single paragraph brief description of the song " + title + " by " + composer + " with no extra lines"
+            viewModel2.send(text: questionPieceDesc) { response in
+                self.pieceDescription = response
+                }
+                
+            self.questionHist = "Tell me about the historical context of the song " + title + " by " + composer + ". Focus on historical context. Do not describe the piece or the composer. Do not include the title of the piece in your description. Do this in one paragraph with no new lines"
+            viewModel2.send(text: questionHist) { response in
+                self.historicalContext = response
+                }
+                
+            self.questionSound = "Describe the sounds and textures you can hear in " + title + " by " + composer + ". Write a single snippet with no extra lines. Do not include the title or name of the composer."
+            viewModel2.send(text: questionSound) { response in
+                self.sounds = response
+                }
             }
         }
         .padding()
@@ -217,9 +345,9 @@ struct DetailView: View {
         models.append("Me: \(text)")
         viewModel2.send(text: text) { response in
             DispatchQueue.main.async {
-                self.models.append("ChatGPT: "+response)
-                self.title = viewModel1.shazamMedia.title ?? "Title"
-                self.sendQuestion = "Write me a haiku about " + title
+//                self.models.append("ChatGPT: "+response)
+//                self.title = viewModel1.shazamMedia.title ?? "Title"
+//                self.questionRecArtist = "Write me a haiku about " + title
             }
         }
     }
@@ -228,8 +356,6 @@ struct DetailView: View {
 struct ContentView: View {
     @ObservedObject var viewModel2 = ViewModel()
     @StateObject private var viewModel = ContentViewModel()
-    
-    var artists: [String] = ["not white man 1", "v cool woman 2", "mozart"]
 
     var body: some View {
         NavigationStack {
@@ -329,11 +455,18 @@ struct ContentView: View {
                     Spacer()
                     Button(action: {viewModel.startOrEndListening()}) {
                         Text(viewModel.isRecording ? "Listening..." : "Start Recording")
-                            .frame(width: 300)
-                    }.buttonStyle(.bordered)
+                            .frame(width: 200, height: 100)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .fontWidth(.condensed)
+//                            .foregroundStyle(.blue.gradient)
+                    }
+                    .myStyle(viewModel.isRecording ? .bordered : .borderProminent)
                         .controlSize(.large)
                     //                    .controlProminence(.increased)
                         .shadow(radius: 4)
+                        .buttonBorderShape(.capsule)
+                        .tint(.purple.opacity(0.7))
                     Spacer()
                         .navigationDestination(
                              isPresented: $viewModel.endListening) {
