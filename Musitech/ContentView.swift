@@ -183,7 +183,6 @@ struct DetailView: View {
                             .font(.headline)
                         Spacer()
                         Button {
-                            sleep(2)
                             viewModel2.send(text: questionPieceDesc) { response in
                                 self.pieceDescription = response
                             }
